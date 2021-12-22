@@ -6,7 +6,7 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 20:18:05 by rteles            #+#    #+#             */
-/*   Updated: 2021/11/16 23:15:37 by rteles           ###   ########.fr       */
+/*   Updated: 2021/12/22 17:26:05 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 	i = 0;
 	a = 0;
 	len = ft_strlen(s2);
-	if (len == 0 || s1 == s2)
+	if (len == 0)
 		return ((char *)s1);
 	while (i < n && s1[i])
 	{

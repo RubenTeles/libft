@@ -6,7 +6,7 @@
 #    By: rteles <rteles@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/05 21:17:09 by rteles            #+#    #+#              #
-#    Updated: 2021/11/15 00:01:05 by rteles           ###   ########.fr        #
+#    Updated: 2021/12/22 18:04:39 by rteles           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,8 +32,8 @@ all:	$(NAME)
 		$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
 
 $(NAME): $(OBJS)
-			ar -rcs $(NAME) $(OBJS)
-			ranlib $(NAME)
+		ar -rcs $(NAME) $(OBJS)
+		ranlib $(NAME)
 
 clean:
 		$(RM) $(OBJS) $(BONUS_OBJS)
@@ -44,6 +44,6 @@ fclean:	clean
 re:		fclean all
 
 bonus:	$(OBJS) $(BONUS_OBJS)
-			ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
+		ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
 
 .PHONY:	all clean fclean re bonus
