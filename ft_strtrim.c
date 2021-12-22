@@ -6,23 +6,11 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 18:47:02 by rteles            #+#    #+#             */
-/*   Updated: 2021/12/22 16:42:47 by rteles           ###   ########.fr       */
+/*   Updated: 2021/12/22 22:21:00 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static int	ft_isxblank(char const *s1)
-{
-	int	i;
-
-	i = 0;
-	while (s1[i] == ' ' || s1[i] == '\t' || s1[i] == '\n')
-		i++;
-	if (s1[i] == '\0')
-		return (1);
-	return (0);
-}
 
 static int	ft_start(char const *s1, char const *set, int i, int *len)
 {
@@ -48,8 +36,6 @@ static int	ft_start(char const *s1, char const *set, int i, int *len)
 			break ;
 		i++;
 	}
-	if (b == (int)ft_strlen(s1))
-		return (0);
 	return (i);
 }
 
@@ -90,8 +76,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	if (s1 == NULL || set == NULL)
 		return (0);
-	if ((ft_isxblank(s1)) == 1)
-		return (ft_calloc(sizeof(char *), 1));
 	len = 0;
 	start = ft_start(s1, set, 0, &len);
 	ft_end(s1, set, ft_strlen(s1) - 1, &len);
