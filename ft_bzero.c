@@ -6,7 +6,7 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 19:28:41 by rteles            #+#    #+#             */
-/*   Updated: 2021/11/16 23:13:08 by rteles           ###   ########.fr       */
+/*   Updated: 2021/12/22 16:06:57 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ void	ft_bzero(void *s, size_t n)
 		rtstr[i] = '\0';
 		i++;
 	}
-	s = &*(void *)rtstr;
+	s = (void *)rtstr;
 }

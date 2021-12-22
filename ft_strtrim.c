@@ -6,7 +6,7 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 18:47:02 by rteles            #+#    #+#             */
-/*   Updated: 2021/11/20 22:59:14 by rteles           ###   ########.fr       */
+/*   Updated: 2021/12/22 16:18:34 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*str;
 	int		start;
 	int		len;
-	int		end;
 
 	if (s1 == NULL || set == NULL)
 		return (0);
@@ -95,7 +94,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (ft_calloc(sizeof(char *), 1));
 	len = 0;
 	start = ft_start(s1, set, 0, &len);
-	end = ft_end(s1, set, ft_strlen(s1) - 1, &len);
+	ft_end(s1, set, ft_strlen(s1) - 1, &len);
 	if (len >= (int)ft_strlen(s1))
 		len = 0;
 	else
