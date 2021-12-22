@@ -6,7 +6,7 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/24 19:48:49 by rteles            #+#    #+#             */
-/*   Updated: 2021/11/16 23:14:10 by rteles           ###   ########.fr       */
+/*   Updated: 2021/12/22 19:40:50 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ int	ft_memcmp(const void *str1, const void *str2, size_t n)
 			return (a);
 		i++;
 	}
-	return (a);
+	return (0);
 }
