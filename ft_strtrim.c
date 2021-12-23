@@ -6,7 +6,7 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 18:47:02 by rteles            #+#    #+#             */
-/*   Updated: 2021/12/22 22:21:00 by rteles           ###   ########.fr       */
+/*   Updated: 2021/12/23 17:11:20 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static int	ft_end(char const *s1, char const *set, int i, int *len)
 
 	a = 0;
 	b = 0;
-	while (s1[i])
+	while (i >= 0)
 	{
 		b = 0;
 		a = 0;
@@ -73,16 +73,18 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*str;
 	int		start;
 	int		len;
+	int		s1len;
 
 	if (s1 == NULL || set == NULL)
 		return (0);
 	len = 0;
+	s1len = ft_strlen(s1);
 	start = ft_start(s1, set, 0, &len);
-	ft_end(s1, set, ft_strlen(s1) - 1, &len);
-	if (len >= (int)ft_strlen(s1))
+	ft_end(s1, set, s1len - 1, &len);
+	if (len >= s1len)
 		len = 0;
 	else
-		len = ft_strlen(s1) - len;
+		len = s1len - len;
 	str = (char *)malloc((len + 1) * sizeof(char));
 	if (str == 0)
 		return (0);
