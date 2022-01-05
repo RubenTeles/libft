@@ -6,88 +6,30 @@
 /*   By: rteles <rteles@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 18:47:02 by rteles            #+#    #+#             */
-/*   Updated: 2021/12/23 17:11:20 by rteles           ###   ########.fr       */
+/*   Updated: 2022/01/05 16:08:14 by rteles           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_start(char const *s1, char const *set, int i, int *len)
-{
-	int	a;
-	int	b;
-
-	a = 0;
-	b = 0;
-	while (s1[i])
-	{
-		b = 0;
-		a = 0;
-		while (set[a])
-		{
-			if (s1[i] == set[a])
-			{
-				*len += 1;
-				b = 1;
-			}
-			a++;
-		}
-		if (b == 0)
-			break ;
-		i++;
-	}
-	return (i);
-}
-
-static int	ft_end(char const *s1, char const *set, int i, int *len)
-{
-	int	a;
-	int	b;
-
-	a = 0;
-	b = 0;
-	while (i >= 0)
-	{
-		b = 0;
-		a = 0;
-		while (set[a])
-		{
-			if (s1[i] == set[a])
-			{
-				*len += 1;
-				b = 1;
-			}
-			a++;
-		}
-		if (b == 0)
-			break ;
-		i--;
-	}
-	if (b == (int)ft_strlen(s1))
-		return (0);
-	return (i);
-}
-
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*str;
-	int		start;
-	int		len;
-	int		s1len;
+	size_t	start;
+	size_t	end;
 
-	if (s1 == NULL || set == NULL)
+	str = 0;
+	if (s1 == 0 || set == 0)
 		return (0);
-	len = 0;
-	s1len = ft_strlen(s1);
-	start = ft_start(s1, set, 0, &len);
-	ft_end(s1, set, s1len - 1, &len);
-	if (len >= s1len)
-		len = 0;
-	else
-		len = s1len - len;
-	str = (char *)malloc((len + 1) * sizeof(char));
-	if (str == 0)
-		return (0);
-	ft_strlcpy(&str[0], &s1[start], len + 1);
+	start = 0;
+	end = ft_strlen(s1);
+	while (s1[start] && ft_strchr(set, s1[start]))
+		start++;
+	while (ft_strchr(set, s1[end - 1]) && end > start)
+		end--;
+	str = (char *)malloc((end - start + 1) * sizeof(char));
+	if (!str)
+		return (NULL);
+	ft_strlcpy(str, &s1[start], end - start + 1);
 	return (str);
 }
